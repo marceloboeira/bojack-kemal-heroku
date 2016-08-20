@@ -1,4 +1,5 @@
 require "kemal"
+require "bojack/bojack/server"
 require "bojack/bojack/client"
 
 get "/" do
@@ -19,8 +20,12 @@ def client
   BoJack::Client.new("127.0.0.1", 5000)
 end
 
-# BoJack should be running by now
 def bootstrap
+  # Server
+  spawn do
+    BoJack::Server.new("127.0.0.1", 5000).start
+  end
+  sleep 1
   client.set("count", 0)
 end
 
