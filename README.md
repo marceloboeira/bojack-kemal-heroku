@@ -1,31 +1,35 @@
-# bojack-kemal-example
+# BoJack + Kemal + Heroku
+> a BoJack server running on Heroku
 
-TODO: Write a description here
+### Intro
+This is an example of a project with BoJack, Kemal and Heroku.
 
-## Installation
+BoJack stores a counter, while Kemal provives a web-interface and Heroku servers.
 
+Unfortunately doing heroku buildpack problems, for now BoJack is running in the same process as kemal,
+but we plan to change that as soon by creating a bojack buildpack.
 
-TODO: Write installation instructions here
+### Concurrency problems
 
+Yes, it is now concurrently safe.
+It is just an example, as soon as BoJack implement a "increment" command we will deal with concurrency properly.
 
-## Usage
+### Deploy
 
+1) Clone the project
 
+```shell
+git clone https://github.com/marceloboeira/bojack-kemal-heroku.git
+```
 
-TODO: Write usage instructions here
+2) Create a heroku crystal app
 
-## Development
+```shell
+heroku create my_bojack_app --buildpack https://github.com/crystal-lang/heroku-buildpack-crystal.git
+```
 
-TODO: Write development instructions here
+3) Push to heroku
 
-## Contributing
-
-1. Fork it ( https://github.com/[your-github-name]/bojack-kemal-example/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
-
-## Contributors
-
-- [[your-github-name]](https://github.com/[your-github-name]) Marcelo Boeira - creator, maintainer
+```shell
+git push heroku master
+```
