@@ -2,7 +2,7 @@ version: 1.0
 shards:
   bojack:
     github: marceloboeira/bojack
-    commit: 67e84cd94b8fd64be5b9f8f6e0c7022b1ef5b0cf
+    commit: 560260713a19da9f008dd11e401ed89f9c436ff5
 
   commander:
     github: mrrooijen/commander

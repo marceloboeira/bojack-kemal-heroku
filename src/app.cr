@@ -3,17 +3,9 @@ require "bojack/bojack/server"
 require "bojack/bojack/client"
 
 get "/" do
-  count = client.get("count")
+  count = client.increment("count") || 0
 
-  # yeap, this is bullshit for concurrency, I know
-  # For now BoJack doesn't have any "increment" command
-  if count
-    count = count.to_i
-    count += 1
-    client.set("count", count)
-  end
-
-  "BoJack PageViews: #{count}"
+  "BoJack PageViews: #{count.to_s}"
 end
 
 def client

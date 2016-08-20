@@ -4,15 +4,10 @@
 ### Intro
 This is an example of a project with BoJack, Kemal and Heroku.
 
-BoJack stores a counter, while Kemal provives a web-interface and Heroku servers.
+BoJack stores a counter, while Kemal provides a web-interface and Heroku servers.
 
 Unfortunately doing heroku buildpack problems, for now BoJack is running in the same process as kemal,
 but we plan to change that as soon by creating a bojack buildpack.
-
-### Concurrency problems
-
-Yes, it is now concurrently safe.
-It is just an example, as soon as BoJack implement a "increment" command we will deal with concurrency properly.
 
 ### Deploy
 
