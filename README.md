@@ -1,10 +1,10 @@
 # BoJack + Kemal + Heroku
-> a BoJack server running on Heroku
+> URL Shortener made with Kemal + BoJack + Heroku
 
 ### Intro
 This is an example of a project with BoJack, Kemal and Heroku.
 
-BoJack stores a counter, while Kemal provides a web-interface and Heroku servers.
+BoJack stores a the URL, while Kemal provides a web-interface and Heroku servers.
 
 Unfortunately doing heroku buildpack problems, for now BoJack is running in the same process as kemal,
 but we plan to change that as soon by creating a bojack buildpack.

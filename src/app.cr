@@ -1,11 +1,22 @@
 require "kemal"
 require "bojack/bojack/server"
-require "bojack/bojack/client"
+require "bojack-client/bojack-client"
+require "secure_random"
 
-get "/" do
-  count = client.increment("count") || 0
+get "/new/:url" do |env|
+  url = URI.unescape(env.params.url["url"])
+  short = SecureRandom.hex[0..6]
 
-  "BoJack PageViews: #{count.to_s}"
+  client.set(short, url)
+
+  "New URL #{url} -> /#{short}"
+end
+
+get "/:key" do |env|
+  key = env.params.url["key"]
+  url = client.get(key) || "https://github.com"
+
+  env.redirect(url.tr("\n", ""))
 end
 
 def client
@@ -13,12 +24,10 @@ def client
 end
 
 def bootstrap
-  # Server
   spawn do
     BoJack::Server.new("127.0.0.1", 5000).start
   end
   sleep 1
-  client.set("count", 0)
 end
 
 bootstrap

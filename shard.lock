@@ -2,7 +2,11 @@ version: 1.0
 shards:
   bojack:
     github: marceloboeira/bojack
-    commit: 560260713a19da9f008dd11e401ed89f9c436ff5
+    commit: 8da93583eb74c2fbd14b4bf78d955d66e44c307c
+
+  bojack-client:
+    github: hugoabonizio/bojack.cr
+    version: 0.1.0
 
   commander:
     github: mrrooijen/commander
@@ -10,13 +14,17 @@ shards:
 
   kemal:
     github: sdogruyol/kemal
-    commit: 6280af2e405258cc353e7d6039f3066817398a45
+    commit: cc78f4e02e68d7aedb5d810c71a4deae11121ab1
 
   kilt:
     github: jeromegn/kilt
     version: 0.3.3
 
+  multipart:
+    github: RX14/multipart.cr
+    version: 0.1.0
+
   radix:
     github: luislavena/radix
-    version: 0.3.0
+    version: 0.3.1
 
